@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Species Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            margin-bottom: 15px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Species Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="sepal-length">Sepal Length:</label>
+            <input type="text" id="sepal-length" name="sepal_length" step="0.01" required>
+
+            <label for="sepal-width">Sepal Width:</label>
+            <input type="text" id="sepal-width" name="sepal_width" step="0.01" required>
+
+            <label for="petal-length">Petal Length:</label>
+            <input type="text" id="petal-length" name="petal_length" step="0.01" required>
+
+            <label for="petal-width">Petal Width:</label>
+            <input type="text" id="petal-width" name="petal_width" step="0.01" required>
+
+            <input id ="button" type="submit" placeholder="Predict!">
+        </form>
+    </div>
+
+    <p>
+        {% if prediction != "": %}
+        <h1> Prediction: {{prediction}} </h1>
+
+        {% endif %}
+    </p>
+</body>
+</html>
